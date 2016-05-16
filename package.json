@@ -1,6 +1,6 @@
 {
   "name": "react-router-tutorial",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "lodash": "^4.12.0",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.4",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "react-router": "^2.4.0"
   }
 }
