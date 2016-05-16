@@ -1,10 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-require('../node_modules/bootstrap/dist/css/bootstrap.css')
+import { Router, Route, hashHistory } from 'react-router';
 
-import App from './components/app'
+require('../node_modules/bootstrap/dist/css/bootstrap.css');
 
-ReactDOM.render(
-  <App />,
+import App from './components/app';
+import About from './components/about';
+import Repos from './components/repos';
+
+ReactDOM.render((
+    <Router history={hashHistory}>
+      <Route path="/" component={App} />
+      <Route path="/repos" component={Repos} />
+      <Route path="/about" component={About} />
+    </Router>
+  ),
   document.body.appendChild(document.createElement('div'))
 );
