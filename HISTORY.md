@@ -1,3 +1,8 @@
+0.0.7 / 2016/05/17
+==================
+
+  * [Lesson 7 - More Nesting](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/07-more-nesting) done
+
 0.0.6 / 2016/05/17
 ==================
 
