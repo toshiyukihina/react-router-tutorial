@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavLink from './nav_link';
 import { Link } from 'react-router';
+import NavLink from './NavLink';
 
 class Repos extends React.Component {
 
