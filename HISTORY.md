@@ -1,3 +1,8 @@
+0.0.10 / 2016/05/17
+==================
+
+  * [Lesson 10 - Clean URLs with Browser History](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/10-clean-urls) done
+
 0.0.9 / 2016/05/17
 ==================
 
