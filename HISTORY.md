@@ -1,3 +1,8 @@
+0.0.6 / 2016/05/17
+==================
+
+  * [Lesson 6 - Params](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/06-params) done
+
 0.0.5 / 2016/05/17
 ==================
 
