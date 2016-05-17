@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 
 require('../node_modules/bootstrap/dist/css/bootstrap.css');
+require('./index.css');
 
 import App from './components/app';
 import About from './components/about';
