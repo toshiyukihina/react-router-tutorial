@@ -1,3 +1,8 @@
+0.0.9 / 2016/05/17
+==================
+
+  * [Lesson 9 - Index Links](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/09-index-links) done
+
 0.0.8 / 2016/05/17
 ==================
 
