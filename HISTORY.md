@@ -1,4 +1,9 @@
-0.0.3 / 2016/05/17
+0.0.5 / 2016/05/17
+==================
+
+  * [Lesson 5 - Active Links](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/05-active-links) done
+
+0.0.4 / 2016/05/17
 ==================
 
   * [Lesson 4 - Nested Routes](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/04-nested-routes) done
