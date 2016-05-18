@@ -67,7 +67,7 @@ class Repos extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <NavLink to="/repos/facebook/react">Factbook</NavLink>
+                  <NavLink to="/repos/facebook/react">Facebook</NavLink>
                 </td>
               </tr>
             </tbody>
