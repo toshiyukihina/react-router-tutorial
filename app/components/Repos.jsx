@@ -8,15 +8,32 @@ class Repos extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      userName: '',
+      repo: ''
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUserNameChange = this.handleUserNameChange.bind(this);
+    this.handleRepoChange = this.handleRepoChange.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+
     const username = e.target.elements[0].value;
     const repo = e.target.elements[1].value;
-    const path = `/repos/${username}/${repo}`;
-    browserHistory.push(path);
+    browserHistory.push(`/repos/${username}/${repo}`);
+
+    this.setState({ userName: '', repo: '' });
+  }
+
+  handleUserNameChange(e) {
+    this.setState({ userName: e.target.value });
+  }
+
+  handleRepoChange(e) {
+    this.setState({ repo: e.target.value });
   }
 
   render() {
@@ -25,13 +42,13 @@ class Repos extends React.Component {
         <Row>
           <Form inline onSubmit={this.handleSubmit}>
             <FormGroup>
-              <FormControl type="text" placeholder="userName" />
+              <FormControl type="text" placeholder="userName" value={this.state.userName} onChange={this.handleUserNameChange} />
             </FormGroup>
             {' / '}
             <FormGroup>
-              <FormControl type="text" placeholder="repo" />
+              <FormControl type="text" placeholder="repo" value={this.state.repo} onChange={this.handleRepoChange} />
             </FormGroup>
-            <Button type="submit">Go</Button>
+            <Button type="submit" disabled={!this.state.userName || !this.state.repo}>Go</Button>
           </Form>
         </Row>
         <br />
