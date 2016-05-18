@@ -1,8 +1,7 @@
 import React from 'react';
-import { IndexLink, Link } from 'react-router';
+import { Link } from 'react-router';
 import { Grid, Nav, NavItem, Col, Navbar, Glyphicon } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
-import NavLink from './NavLink';
 import FontAwesome from 'react-fontawesome';
 
 class App extends React.Component {
@@ -18,6 +17,47 @@ class App extends React.Component {
   }
 
   render() {
+    const menuItemNodes = () => {
+      const menuItems = [{
+        id: 1,
+        path: "/",
+        label: "Home",
+        icon: "home",
+        isIndex: true
+      }, {
+        id: 2,
+        path: "/about",
+        label: "About",
+        icon: "question-circle-o"
+      }, {
+        id: 3,
+        path: "/repos",
+        label: "Repos",
+        icon: "github"
+      }];
+
+      return menuItems.map((menuItem) => {
+        const navItem = React.createElement(
+          NavItem,
+          {
+            eventKey: menuItem.id
+          },
+          menuItem.label
+        );
+        
+        return React.createElement(
+          menuItem.isIndex ? IndexLinkContainer : LinkContainer,
+          {
+            to: {
+              pathname: menuItem.path
+            },
+            key: menuItem.id
+          },
+          navItem
+        );
+      });
+    }
+    
     return (
       <div>
         <Navbar>
@@ -34,15 +74,7 @@ class App extends React.Component {
         <Grid>
           <Col md={3}>
             <Nav bsStyle="pills" stacked activeKey={1} onSelect={this.handleSelect}>
-              <IndexLinkContainer to={{ pathname: "/" }}>
-                <NavItem eventKey={1}><FontAwesome name="home" />{' '}Home</NavItem>
-              </IndexLinkContainer>
-              <LinkContainer to={{ pathname: "/about" }}>
-                <NavItem eventKey={2}><FontAwesome name="question-circle-o" />{' '}About</NavItem>
-              </LinkContainer>
-              <LinkContainer to={{ pathname: "/repos" }}>
-                <NavItem eventKey={3}><FontAwesome name="github" />{' '}Repos</NavItem>
-              </LinkContainer>
+              { menuItemNodes() }
             </Nav>
           </Col>
           <Col md={9}>
