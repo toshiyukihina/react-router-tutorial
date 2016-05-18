@@ -16,7 +16,7 @@ class Repos extends React.Component {
           <Table striped bordered condensed hover>
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Repository</th>
               </tr>
             </thead>          
             <tbody>

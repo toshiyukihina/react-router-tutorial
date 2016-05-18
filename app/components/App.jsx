@@ -1,6 +1,6 @@
 import React from 'react';
-import { IndexLink } from 'react-router';
-import { Grid, Nav, NavItem, Col } from 'react-bootstrap';
+import { IndexLink, Link } from 'react-router';
+import { Grid, Nav, NavItem, Col, Navbar } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import NavLink from './NavLink';
 
@@ -19,8 +19,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to="/">React Router Tutorial</Link>
+            </Navbar.Brand>
+          </Navbar.Header>
+        </Navbar>
+        
         <Grid>
-          <h1>React Router Tutorial</h1>
           <Col md={3}>
             <Nav bsStyle="pills" stacked activeKey={1} onSelect={this.handleSelect}>
               <IndexLinkContainer to={{ pathname: "/" }}>
