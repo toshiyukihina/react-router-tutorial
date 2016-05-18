@@ -9,6 +9,7 @@ import Repo from './components/Repo';
 import Home from './components/Home';
 
 require('../node_modules/bootstrap/dist/css/bootstrap.css');
+require('../node_modules/font-awesome/css/font-awesome.css')
 require('./index.css');
 
 ReactDOM.render((

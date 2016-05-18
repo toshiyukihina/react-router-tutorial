@@ -3,6 +3,7 @@ import { IndexLink, Link } from 'react-router';
 import { Grid, Nav, NavItem, Col, Navbar, Glyphicon } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import NavLink from './NavLink';
+import FontAwesome from 'react-fontawesome';
 
 class App extends React.Component {
 
@@ -22,7 +23,10 @@ class App extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">React Router Tutorial</Link>
+              <Link to="/">
+                <FontAwesome name="github" />{' '}
+                React Router Tutorial
+              </Link>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
@@ -31,13 +35,13 @@ class App extends React.Component {
           <Col md={3}>
             <Nav bsStyle="pills" stacked activeKey={1} onSelect={this.handleSelect}>
               <IndexLinkContainer to={{ pathname: "/" }}>
-                <NavItem eventKey={1}><Glyphicon glyph="home" />{' '}Home</NavItem>
+                <NavItem eventKey={1}><FontAwesome name="home" />{' '}Home</NavItem>
               </IndexLinkContainer>
               <LinkContainer to={{ pathname: "/about" }}>
-                <NavItem eventKey={2}><Glyphicon glyph="question-sign" />{' '}About</NavItem>
+                <NavItem eventKey={2}><FontAwesome name="question-circle-o" />{' '}About</NavItem>
               </LinkContainer>
               <LinkContainer to={{ pathname: "/repos" }}>
-                <NavItem eventKey={3}><Glyphicon glyph="cloud" />{' '}Repos</NavItem>
+                <NavItem eventKey={3}><FontAwesome name="github" />{' '}Repos</NavItem>
               </LinkContainer>
             </Nav>
           </Col>
