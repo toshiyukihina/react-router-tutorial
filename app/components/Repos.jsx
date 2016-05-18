@@ -23,6 +23,19 @@ class Repos extends React.Component {
     return (
       <div>
         <Row>
+          <Form inline onSubmit={this.handleSubmit}>
+            <FormGroup>
+              <FormControl type="text" placeholder="userName" />
+            </FormGroup>
+            {' / '}
+            <FormGroup>
+              <FormControl type="text" placeholder="repo" />
+            </FormGroup>
+            <Button type="submit">Go</Button>
+          </Form>
+        </Row>
+        <br />
+        <Row>
           <Table striped bordered condensed hover>
             <thead>
               <tr>
@@ -42,18 +55,6 @@ class Repos extends React.Component {
               </tr>
             </tbody>
           </Table>
-        </Row>
-        <Row>
-          <Form inline onSubmit={this.handleSubmit}>
-            <FormGroup>
-              <FormControl type="text" placeholder="userName" />
-            </FormGroup>
-            {' / '}
-            <FormGroup>
-              <FormControl type="text" placeholder="repo" />
-            </FormGroup>
-            <Button type="submit">Go</Button>
-          </Form>
         </Row>
         <Row>
           { this.props.children }
