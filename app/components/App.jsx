@@ -21,7 +21,7 @@ class App extends React.Component {
       <div>
         <Grid>
           <h1>React Router Tutorial</h1>
-          <Col md={4}>
+          <Col md={3}>
             <Nav bsStyle="pills" stacked activeKey={1} onSelect={this.handleSelect}>
               <IndexLinkContainer to={{ pathname: "/" }}>
                 <NavItem eventKey={1}>Home</NavItem>
@@ -34,7 +34,7 @@ class App extends React.Component {
               </LinkContainer>
             </Nav>
           </Col>
-          <Col md={8}>
+          <Col md={9}>
             { this.props.children }
           </Col>
         </Grid>
