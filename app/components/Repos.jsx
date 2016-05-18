@@ -1,12 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { Table, Row } from 'react-bootstrap';
+import { Link, browserHistory } from 'react-router';
+import { Table, Row, Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import NavLink from './NavLink';
 
 class Repos extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const username = e.target.elements[0].value;
+    const repo = e.target.elements[1].value;
+    const path = `/repos/${username}/${repo}`;
+    browserHistory.push(path);
   }
 
   render() {
@@ -34,6 +44,18 @@ class Repos extends React.Component {
           </Table>
         </Row>
         <Row>
+          <Form inline onSubmit={this.handleSubmit}>
+            <FormGroup>
+              <FormControl type="text" placeholder="userName" />
+            </FormGroup>
+            {' / '}
+            <FormGroup>
+              <FormControl type="text" placeholder="repo" />
+            </FormGroup>
+            <Button type="submit">Go</Button>
+          </Form>
+        </Row>
+        <Row>
           { this.props.children }
         </Row>
       </div>
@@ -41,5 +63,9 @@ class Repos extends React.Component {
   }
 
 }
+
+Repos.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default Repos;
