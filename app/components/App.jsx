@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Grid, Nav, NavItem, Col, Navbar, Glyphicon } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import NavMenuItems from './NavMenuItems'
 
 class App extends React.Component {
 
@@ -18,25 +19,7 @@ class App extends React.Component {
 
   render() {
     const menuItemNodes = () => {
-      const menuItems = [{
-        id: 1,
-        path: "/",
-        label: "Home",
-        icon: "home",
-        isIndex: true
-      }, {
-        id: 2,
-        path: "/about",
-        label: "About",
-        icon: "question-circle-o"
-      }, {
-        id: 3,
-        path: "/repos",
-        label: "Repos",
-        icon: "github"
-      }];
-
-      return menuItems.map((menuItem) => {
+      return NavMenuItems.map((menuItem) => {
         const navItem = React.createElement(
           NavItem,
           {
