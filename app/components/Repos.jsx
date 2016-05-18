@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
+import { Table, Row } from 'react-bootstrap';
 import NavLink from './NavLink';
 
 class Repos extends React.Component {
@@ -12,12 +12,30 @@ class Repos extends React.Component {
   render() {
     return (
       <div>
-        <h2>Repos</h2>
-        <ul>
-          <li><NavLink to="/repos/reactjs/react-router">React Router</NavLink></li>
-          <li><NavLink to="/repos/facebook/react">Facebook</NavLink></li>
-        </ul>
-        { this.props.children }
+        <Row>
+          <Table striped bordered condensed hover>
+            <thead>
+              <tr>
+                <th>Name</th>
+              </tr>
+            </thead>          
+            <tbody>
+              <tr>
+                <td>
+                  <NavLink to="/repos/reactjs/react-router">React Router</NavLink>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <NavLink to="/repos/facebook/react">Factbook</NavLink>
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+        </Row>
+        <Row>
+          { this.props.children }
+        </Row>
       </div>
     );
   }
