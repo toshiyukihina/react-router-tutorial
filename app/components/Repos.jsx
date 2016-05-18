@@ -37,6 +37,18 @@ class Repos extends React.Component {
   }
 
   render() {
+    const navLinkNodes = () => {
+      const navLinks = [{
+        id: 1, url: '/repos/reactjs/react-router', label: 'React Router'
+      }, {
+        id: 2, url: '/repos/facebook/react', label: 'Facebook'
+      }];
+
+      return navLinks.map((navLink) => {
+        return (<tr key={navLink.id}><td><NavLink to={navLink.url}>{navLink.label}</NavLink></td></tr>);
+      })
+    };
+
     return (
       <div>
         <Row>
@@ -60,16 +72,7 @@ class Repos extends React.Component {
               </tr>
             </thead>          
             <tbody>
-              <tr>
-                <td>
-                  <NavLink to="/repos/reactjs/react-router">React Router</NavLink>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <NavLink to="/repos/facebook/react">Facebook</NavLink>
-                </td>
-              </tr>
+              {navLinkNodes()}
             </tbody>
           </Table>
         </Row>
