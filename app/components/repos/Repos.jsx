@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import { Table, Row, Form, FormGroup, FormControl, Button } from 'react-bootstrap';
-import NavLink from '../NavLink';
+import NavLink from '../common/NavLink';
 
 class Repos extends React.Component {
 
