@@ -13,6 +13,11 @@ const NavMenuItems = [{
   id: 3,
   path: "/repos",
   label: "Repos",
+  icon: "database"
+}, {
+  id: 4,
+  path: "/github",
+  label: "Github",
   icon: "github"
 }];
 

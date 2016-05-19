@@ -7,6 +7,7 @@ import About from './components/About';
 import Repos from './components/Repos';
 import Repo from './components/Repo';
 import Home from './components/Home';
+import Github from './components/Github';
 
 require('../node_modules/bootstrap/dist/css/bootstrap.css');
 require('../node_modules/font-awesome/css/font-awesome.css')
@@ -18,6 +19,9 @@ ReactDOM.render((
       <IndexRoute component={Home} />
       <Route path="/repos" component={Repos}>
         <Route path="/repos/:userName/:repoName" component={Repo} />
+      </Route>
+      <Route path="/github" component={Github}>
+        <Route path="/github/repos/:userName" component={Repos} />
       </Route>
       <Route path="/about" component={About} />
     </Route>
