@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App';
-import About from './components/About';
-import Repos from './components/Repos';
-import Repo from './components/Repo';
-import Home from './components/Home';
-import Github from './components/Github';
+import About from './components/about/About';
+import Repos from './components/repos/Repos';
+import Repo from './components/repos/Repo';
+import Home from './components/home/Home';
+import Github from './components/github/Github';
 
 require('../node_modules/bootstrap/dist/css/bootstrap.css');
 require('../node_modules/font-awesome/css/font-awesome.css')

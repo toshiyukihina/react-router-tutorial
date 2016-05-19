@@ -35,7 +35,8 @@ class Github extends React.Component {
 
     this.fetchRepositories(e.target.elements[0].value.trim())
         .then((res) => {
-          this.setState({ repositories: res.body });
+          const repos = res.ok ? res.body : [];
+          this.setState({ repositories: repos });
         })
         .finally(() => {
           this.setState({ isFetching: false });
