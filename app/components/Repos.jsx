@@ -21,8 +21,8 @@ class Repos extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const username = e.target.elements[0].value;
-    const repo = e.target.elements[1].value;
+    const username = e.target.elements[0].value.trim();
+    const repo = e.target.elements[1].value.trim();
     browserHistory.push(`/repos/${username}/${repo}`);
 
     this.setState({ userName: '', repo: '' });
