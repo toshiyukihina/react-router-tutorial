@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, FormControl, Button, Grid, Row } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Button, Grid, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import Promise from 'bluebird';
 import request from 'superagent';
@@ -12,11 +12,12 @@ class Github extends React.Component {
     this.state = {
       userName: '',
       isFetching: false,
-      repositories: ''
+      repositories: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleItemClicked = this.handleItemClicked.bind(this);
   }
 
   fetchRepositories(userName) {
@@ -35,7 +36,7 @@ class Github extends React.Component {
 
     this.fetchRepositories(e.target.elements[0].value.trim())
         .then((res) => {
-          this.setState({ userName: '', repositories: res.body });
+          this.setState({ repositories: res.body });
         })
         .finally(() => {
           this.setState({ isFetching: false });
@@ -46,11 +47,24 @@ class Github extends React.Component {
     this.setState({ userName: e.target.value });
   }
 
+  handleItemClicked() {
+  }
+
   render() {
+    const repositoryList = (repos) => {
+      return repos.map((repo, i) => {
+        return (
+          <ListGroupItem key={i} header={repo.name} onClick={this.handleItemClicked}>
+            {repo.description || 'No Description'}
+          </ListGroupItem>
+        );
+      });
+    };
+    
     return (
       <div>
-        <Grid>
-          <Row>
+        <Row>
+          <Col md={12}>
             <Form inline onSubmit={this.handleSubmit}>
               <FormGroup>
                 <FormControl type="text"
@@ -65,12 +79,16 @@ class Github extends React.Component {
                 <FontAwesome name="search" />{' Search'}
               </Button>
             </Form>
-          </Row>
-          <br />
-          <Row>
-            { JSON.stringify(this.state.repositories) }
-          </Row>
-        </Grid>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col md={12}>
+            <ListGroup>
+              { repositoryList(this.state.repositories) }                
+            </ListGroup>
+          </Col>
+        </Row>
       </div>
     );
   }
