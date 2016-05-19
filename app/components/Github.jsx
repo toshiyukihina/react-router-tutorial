@@ -17,7 +17,6 @@ class Github extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleItemClicked = this.handleItemClicked.bind(this);
   }
 
   fetchRepositories(userName) {
@@ -47,14 +46,15 @@ class Github extends React.Component {
     this.setState({ userName: e.target.value });
   }
 
-  handleItemClicked() {
+  handleItemClicked(name) {
+    console.log(name);
   }
 
   render() {
     const repositoryList = (repos) => {
-      return repos.map((repo, i) => {
+      return repos.map((repo) => {
         return (
-          <ListGroupItem key={i} header={repo.name} onClick={this.handleItemClicked}>
+          <ListGroupItem key={repo.id} header={repo.name} onClick={this.handleItemClicked.bind(this, repo.id)}>
             {repo.description || 'No Description'}
           </ListGroupItem>
         );
