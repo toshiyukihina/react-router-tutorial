@@ -20,14 +20,22 @@ class App extends React.Component {
   render() {
     const menuItemNodes = () => {
       return NavMenuItems.map((menuItem) => {
+        const navIcon = React.createElement(
+          FontAwesome,
+          {
+            name: menuItem.icon
+          },
+          ` ${menuItem.label}`
+        );
+
         const navItem = React.createElement(
           NavItem,
           {
             eventKey: menuItem.id
           },
-          menuItem.label
+          navIcon
         );
-        
+
         return React.createElement(
           menuItem.isIndex ? IndexLinkContainer : LinkContainer,
           {
