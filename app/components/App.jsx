@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   render() {
-    const menuItemNodes = () => {
+    const navMenu = () => {
       return NavMenuItems.map((menuItem) => {
         const navIcon = React.createElement(
           FontAwesome,
@@ -65,7 +65,7 @@ class App extends React.Component {
         <Grid>
           <Col md={3}>
             <Nav bsStyle="pills" stacked activeKey={1} onSelect={this.handleSelect}>
-              { menuItemNodes() }
+              { navMenu() }
             </Nav>
           </Col>
           <Col md={9}>
