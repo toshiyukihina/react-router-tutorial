@@ -13,7 +13,7 @@ require('../node_modules/bootstrap/dist/css/bootstrap.css');
 require('../node_modules/font-awesome/css/font-awesome.css')
 require('./index.css');
 
-ReactDOM.render((
+const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
@@ -26,4 +26,6 @@ ReactDOM.render((
       <Route path="/about" component={About} />
     </Route>
   </Router>
-), document.body.appendChild(document.createElement('div')));
+);
+
+ReactDOM.render(routes, document.body.appendChild(document.createElement('div')));
