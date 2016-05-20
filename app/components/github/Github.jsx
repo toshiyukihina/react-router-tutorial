@@ -19,7 +19,7 @@ class Github extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    browserHistory.push(`/github/${e.target.elements[0].value.trim()}/repos`);
+    browserHistory.push(`/github/${e.target.elements[0].value.trim()}/repos?a=1&b=2`);
   }
 
   handleChange(e) {
