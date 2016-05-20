@@ -5,11 +5,11 @@ import FontAwesome from 'react-fontawesome';
 
 class Github extends React.Component {
 
-  constructor(repos) {
-    super(repos);
+  constructor(repos, context) {
+    super(repos, context);
 
     this.state = {
-      userName: ''
+      userName: new String(this.props.params.userName || '')
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +34,7 @@ class Github extends React.Component {
             <Form inline onSubmit={this.handleSubmit}>
               <FormGroup>
                 <FormControl type="text"
-                             placeholder="Enter username"
+                             placeholder="Enter Username"
                              onChange={this.handleChange}
                              value={this.state.userName}
                              disabled={this.state.isFetching}
@@ -58,6 +58,10 @@ class Github extends React.Component {
   }
 
 }
+
+Github.contextType = {
+  router: React.PropTypes.object
+};
 
 import Repos from './Repos'
 Github.Repos = Repos;
