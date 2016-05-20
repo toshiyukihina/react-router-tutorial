@@ -1,8 +1,7 @@
 import React from 'react';
-import { Form, FormGroup, FormControl, Button, Grid, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
+import { Form, FormGroup, FormControl, Button, Grid, Row, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-import Promise from 'bluebird';
-import request from 'superagent';
 
 class Github extends React.Component {
 
@@ -10,58 +9,24 @@ class Github extends React.Component {
     super(repos);
 
     this.state = {
-      userName: '',
-      isFetching: false,
-      repositories: []
+      userName: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  fetchRepositories(userName) {
-    return new Promise((resolve, reject) => {
-      request.get(`https://api.github.com/users/${userName}/repos`)
-             .end((err, res) => {
-               resolve(res);
-             });
-    });
-  }
-
   handleSubmit(e) {
     e.preventDefault();
 
-    this.setState({ isFetching: true });
-
-    this.fetchRepositories(e.target.elements[0].value.trim())
-        .then((res) => {
-          const repos = res.ok ? res.body : [];
-          this.setState({ repositories: repos });
-        })
-        .finally(() => {
-          this.setState({ isFetching: false });
-        });
+    browserHistory.push(`/github/repos/${e.target.elements[0].value.trim()}`);
   }
 
   handleChange(e) {
     this.setState({ userName: e.target.value });
   }
 
-  handleItemClicked(name) {
-    console.log(name);
-  }
-
   render() {
-    const repositoryList = (repos) => {
-      return repos.map((repo) => {
-        return (
-          <ListGroupItem key={repo.id} header={repo.name} onClick={this.handleItemClicked.bind(this, repo.id)}>
-            {repo.description || 'No Description'}
-          </ListGroupItem>
-        );
-      });
-    };
-    
     return (
       <div>
         <Row>
@@ -85,9 +50,7 @@ class Github extends React.Component {
         <br />
         <Row>
           <Col md={12}>
-            <ListGroup>
-              { repositoryList(this.state.repositories) }                
-            </ListGroup>
+            { this.props.children }
           </Col>
         </Row>
       </div>
@@ -95,5 +58,8 @@ class Github extends React.Component {
   }
 
 }
+
+import Repos from './Repos'
+Github.Repos = Repos;
 
 export default Github;
