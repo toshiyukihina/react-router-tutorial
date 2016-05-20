@@ -61,17 +61,20 @@ class Repos extends React.Component {
     this.updateRepositories(nextProps.params.userName);
   }
   
+  handleRepoClick(repo) {
+    console.log(JSON.stringify(repo));
+  }
+
   render() {
     const {state, percent} = this.state.loading;
     
-    const cols = [
-      'id',
+    const fields = [
       'name',
       'language',
       'description'
     ];
 
-    const headerCells = cols.map((col, i) => {
+    const headerCells = fields.map((col, i) => {
       return (
         <th key={i}>{col.toUpperCase()}</th>
       );
@@ -81,13 +84,15 @@ class Repos extends React.Component {
 
     const repos = this.state.repos.map((repo, i) => {
       const dataCells = (repo) => {
-        return cols.map((col, i) => {
+        return fields.map((col, i) => {
           return (<td key={i}>{repo[col]}</td>);
         });
       };
 
       return (
-        <tr key={i}>{dataCells(repo)}</tr>
+        <tr key={i} onClick={this.handleRepoClick.bind(this, repo)}>
+          {dataCells(repo)}
+        </tr>
       );
     });
 
