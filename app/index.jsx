@@ -21,6 +21,7 @@ const routes = (
         <Route path="/repos/:userName/:repoName" component={Repo} />
       </Route>
       <Route path="/github" component={Github}>
+        <IndexRoute component={Github.BlankRepos} />
         <Route path="/github/repos/:userName" component={Github.Repos} />
       </Route>
       <Route path="/about" component={About} />

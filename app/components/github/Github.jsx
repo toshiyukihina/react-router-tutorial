@@ -63,7 +63,9 @@ Github.contextType = {
   router: React.PropTypes.object
 };
 
-import Repos from './Repos'
+import Repos from './Repos';
 Github.Repos = Repos;
+import BlankRepos from './BlankRepos';
+Github.BlankRepos = BlankRepos;
 
 export default Github;
