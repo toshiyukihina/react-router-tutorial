@@ -10,7 +10,8 @@ import Home from './components/home/Home';
 import Github from './components/github/Github';
 
 require('../node_modules/bootstrap/dist/css/bootstrap.css');
-require('../node_modules/font-awesome/css/font-awesome.css')
+require('../node_modules/font-awesome/css/font-awesome.css');
+require('../node_modules/react-progress-bar-plus/lib/progress-bar.css');
 require('./index.css');
 
 const routes = (

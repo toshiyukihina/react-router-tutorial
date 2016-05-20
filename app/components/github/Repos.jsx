@@ -1,6 +1,9 @@
 import React from 'react';
 import Promise from 'bluebird';
 import request from 'superagent';
+import FontAwesome from 'react-fontawesome';
+import { Row } from 'react-bootstrap';
+import ProgressBar from 'react-progress-bar-plus';
 
 class Repos extends React.Component {
 
@@ -8,7 +11,11 @@ class Repos extends React.Component {
     super(repos);
 
     this.state = {
-      repos: []
+      repos: [],
+      loading: {
+        state: false,
+        percent: 0
+      }
     };
   }
 
@@ -22,12 +29,26 @@ class Repos extends React.Component {
   }
 
   updateRepositories(userName) {
+    this.setState({
+      loading: {
+        state: true,
+        percent: 10
+      }
+    });
+      
     this.fetchRepositories(userName)
         .then((res) => {
           this.setState({ repos: res.ok ? res.body : [] })
         })
         .catch((e) => {})
-        .finally(() => {})
+        .finally(() => {
+          this.setState({
+            loading: {
+              state: false,
+              percent: 100
+            }
+          });
+        })
   }
 
   componentDidMount() {
@@ -39,12 +60,15 @@ class Repos extends React.Component {
   }
   
   render() {
+    const {state, percent} = this.state.loading;
+    
     return (
       <div>
-        <h4>{this.props.params.userName}</h4>
-        <pre>
-          {JSON.stringify(this.state.repos)}
-        </pre>
+        <ProgressBar percent={percent} autoIncrement={state} />
+        <h4>{ this.props.params.userName }</h4>
+        <Row>
+          <pre>{JSON.stringify(this.state.repos)}</pre>
+        </Row>
       </div>
     );
   }
