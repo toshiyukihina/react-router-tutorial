@@ -33,6 +33,7 @@
     "lodash": "^4.12.0",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.4",
+    "react-bootstrap-table": "^2.3.1",
     "react-dom": "^15.0.2",
     "react-fontawesome": "^1.1.0",
     "react-progress-bar-plus": "^1.1.0",
